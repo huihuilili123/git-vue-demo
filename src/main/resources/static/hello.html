@@ -12,8 +12,16 @@
 <!--希望vue 控制div 把数据填充到div 内部-->
     <div id="app"></div>
     <script>
+<!--        组件是用来创建实例的（vm）-->
         const Root = {
-            template: "<h1>我爱Vue</h1>"
+            data(){
+                return{
+                    message: "Vue好棒!"    //data方法返回的对象，其中的属性会自动添加到组件实例中，Root 是组件，组件创建出来的是实例.VM
+                }
+            },//data是一个函数，需要一个对象作为返回值
+            //在模板中可以直接访问组件实例中的属性
+            //在模板中可以通过{{属性名}}来访问组件实例中的属性
+            template: "<h1>我爱Vue,{{message}}</h1>"
         }
         Vue.createApp(Root).mount("#app")
     </script>
